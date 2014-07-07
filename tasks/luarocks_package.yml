@@ -1,0 +1,3 @@
+---
+- name: Install LuaRocks
+  apt: name={{ luarocks_package_name }}

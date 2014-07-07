@@ -1,0 +1,10 @@
+---
+- include: luarocks_source.yml
+  when: luarocks_install_method == "source"
+
+- include: luarocks_package.yml
+  when: luarocks_install_method == "package"
+
+- name: Configure LuaRocks mirrors
+  template: src=luarocks.conf.j2 dest=/etc/luarocks/config.lua
+  when: luarocks_mirrors is defined

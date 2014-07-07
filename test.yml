@@ -1,0 +1,31 @@
+- hosts: package
+  sudo: True
+
+  vars_files:
+    - 'defaults/main.yml'
+
+  vars:
+    luarocks_mirrors:
+    - http://www.luarocks.org/repositories/rocks
+    - http://luarocks.giga.puc-rio.br/
+    - http://luafr.org/luarocks/rocks
+    - http://liblua.so/luarocks/repositories/rocks
+    - http://luarocks.logiceditor.com/rocks
+
+  tasks:
+    - include: 'tasks/main.yml'
+
+- hosts: source
+  sudo: True
+
+  vars:
+    lua_install_method: source
+    lua_source_version: 5.2.3
+    luarocks_install_method: source
+    luarocks_source_version: 2.1.2
+    luajit_install_method: source
+    luajit_source_version: 2.0.2
+
+  tasks:
+    - include: 'tasks/main.yml'
+

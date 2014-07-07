@@ -1,0 +1,6 @@
+rocks_servers = {
+    {% for mirror in luarocks_mirrors %}
+    "{{ mirror }}";
+    {% endfor %}
+}
+variables.CFLAGS= "-O2 -fPIC"

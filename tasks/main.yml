@@ -1,0 +1,15 @@
+---
+# tasks file for lua
+- include: lua_source.yml
+  when: lua_install_method == "source"
+
+- include: lua_package.yml
+  when: lua_install_method == "package"
+
+- include: luarocks.yml
+
+- include: luajit_source.yml
+  when: luajit_install_method == "source"
+
+- include: luajit_package.yml
+  when: luajit_install_method == "package"

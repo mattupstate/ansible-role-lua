@@ -1,0 +1,18 @@
+---
+- name: Install required packages to compile Lua from source
+  apt: name={{ item }}
+  with_items:
+    - libreadline-dev
+    - make
+
+- name: Download Lua source
+  get_url: url=http://www.lua.org/ftp/lua-{{ lua_source_version }}.tar.gz dest=/tmp/lua.tar.gz mode=0440
+
+- name: Extract Lua tarball
+  command: chdir=/tmp/ /bin/tar zxf lua.tar.gz
+
+- name: Compile Lua
+  command: chdir=/tmp/lua-{{ lua_source_version }} make linux
+
+- name: Install Lua
+  command: chdir=/tmp/lua-{{ lua_source_version }} make install

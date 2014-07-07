@@ -1,0 +1,14 @@
+---
+galaxy_info:
+  author: Matt Wright
+  description: Configures and installs Lua related software
+  license: MIT
+  min_ansible_version: 1.2
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+  - system
+
+dependencies: []

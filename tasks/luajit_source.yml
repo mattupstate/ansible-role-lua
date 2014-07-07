@@ -1,0 +1,18 @@
+---
+- name: Install required packages to compile LuaJIT from source
+  apt: name={{ item }}
+  with_items:
+    - libreadline-dev
+    - make
+
+- name: Download LuaJIT source
+  get_url: url=http://luajit.org/download/LuaJIT-{{ luajit_source_version }}.tar.gz dest=/tmp/luajit.tar.gz mode=0440
+
+- name: Extract LuaJIT tarball
+  command: chdir=/tmp/ /bin/tar zxf luajit.tar.gz
+
+- name: Compile LuaJIT
+  command: chdir=/tmp/LuaJIT-{{ luajit_source_version }} make
+
+- name: Install LuaJIT
+  command: chdir=/tmp/LuaJIT-{{ luajit_source_version }} make install

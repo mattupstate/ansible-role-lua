@@ -1,0 +1,21 @@
+---
+- name: Install required packages to compile LuaRocks from source
+  apt: name={{ item }}
+  with_items:
+    - libreadline-dev
+    - make
+
+- name: Download LuaRocks source
+  get_url: url=http://luarocks.org/releases/luarocks-{{ luarocks_source_version }}.tar.gz dest=/tmp/luarocks.tar.gz mode=0440
+
+- name: Extract LuaRocks tarball
+  command: chdir=/tmp/ /bin/tar zxf luarocks.tar.gz
+
+- name: Configure LuaRocks
+  command: chdir=/tmp/luarocks-{{ luarocks_source_version }} ./configure
+
+- name: Compile LuaRocks
+  command: chdir=/tmp/luarocks-{{ luarocks_source_version }} make
+
+- name: Install LuaRocks
+  command: chdir=/tmp/luarocks-{{ luarocks_source_version }} make install

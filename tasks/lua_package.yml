@@ -1,0 +1,3 @@
+---
+- name: Install Lua
+  apt: name={{ lua_package_name }}

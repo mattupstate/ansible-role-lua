@@ -14,15 +14,13 @@ Configures and installs Lua related software
 
 | Name                      | Default  | Description                                                       |
 |---------------------------|----------|-------------------------------------------------------------------|
-| `lua_install_method`      | source   | Lua installation method (source or package)                       |
+| `lua_install_method`      | package  | Lua installation method (source or package)                       |
 | `lua_package_name`        | lua5.2   | Lua package name to install when installing as a package          |
 | `lua_source_version`      | 5.2.3    | Lua version to install when installing from source                |
-|---------------------------|----------|-------------------------------------------------------------------|
-| `luarocks_install_method` | source   | The LuaRocks installation method (source or package)              |
+| `luarocks_install_method` | package  | The LuaRocks installation method (source or package)              |
 | `luarocks_package_name`   | luarocks | The LuaRocks package name to install when installing as a package |
 | `luarocks_source_version` | 2.1.2    | The LuaRocks version to install when installing from source       |
-|---------------------------|----------|-------------------------------------------------------------------|
-| `luajit_install_method`   | source   | The LuaJIT installation method (source or package)                |
+| `luajit_install_method`   | package  | The LuaJIT installation method (source or package)                |
 | `luajit_package_name`     | luajit   | The package name to install when installing as a package          |
 | `luajit_source_version`   | 2.0.2    | The version to install when installing from source                |
 
